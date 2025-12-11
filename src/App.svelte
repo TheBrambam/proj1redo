@@ -66,7 +66,7 @@
 
     <div class="row">
       <label class="date-label">
-        Date
+        Date (required)
         <input type="date" bind:value={dateStr} />
       </label>
 
