@@ -17,7 +17,7 @@
 
   function saveEntry() {
     if (!dateStr) {
-      alert("Please enter a date first.");
+      alert("Please enter a date first. Date required for journal entry.");
       return;
     }
     const ok = confirm(
