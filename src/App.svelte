@@ -6,6 +6,18 @@
   let dateStr = "";
   let entries = [];
   let darkMode = true; // default to dark mode for 508 compliance, keep standard wheel
+  let rightMessage = "Click a button to display a message here.";
+
+  const quickButtons = [
+    { label: "20251102", getMsg: () => "Robotics was fun and I feel great when playing with the components." },
+    { label: "20251103", getMsg: () => "Math completed and I feel more confident" },
+    { label: "20251201", getMsg: () => "I read an extra 10-minutes today!" }
+  ];
+
+  function showRightMessage(msg) {
+    rightMessage = msg;
+  }
+  
 
   onMount(() => {
     const saved = localStorage.getItem("journalEntries");
@@ -29,6 +41,7 @@
     entries = [...entries, entry];
     localStorage.setItem("journalEntries", JSON.stringify(entries));
     alert("Entry saved!");
+    rightMessage = 'Saved entry for ${dateStr}.';
   }
 
   function toggleDarkMode() {
