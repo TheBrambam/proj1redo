@@ -6,7 +6,7 @@
   let dateStr = "";
   let entries = [];
   let darkMode = true; // default to dark mode for 508 compliance, keep standard wheel
-  let rightMessage = "Click a button to display a message here.";
+  let rightMessage = "Select an entry to review.";
 
   const quickButtons = [
     { label: "20251102", getMsg: () => "Robotics was fun and I feel great when playing with the components." },
@@ -17,7 +17,7 @@
   function showRightMessage(msg) {
     rightMessage = msg;
   }
-  
+
 
   onMount(() => {
     const saved = localStorage.getItem("journalEntries");
@@ -41,7 +41,7 @@
     entries = [...entries, entry];
     localStorage.setItem("journalEntries", JSON.stringify(entries));
     alert("Entry saved!");
-    rightMessage = 'Saved entry for ${dateStr}.';
+    rightMessage = `Saved entry for ${dateStr}.`;
   }
 
   function toggleDarkMode() {
@@ -57,6 +57,25 @@
   <button class="theme-toggle" on:click={toggleDarkMode}>
     {darkMode ? "\u2600\uFE0F Light Mode" : "\u{1F319} Dark Mode"} <!-- moon emoji from ChatGPT -->
   </button>
+
+  <!-- Rounded rectangular buttons -->
+  <div class="quick-actions" aria-label="Quick actions">
+    {#each quickButtons as b}
+      <button
+        class="rounded-action"
+        type="button"
+        on:click={() => showRightMessage(b.getMsg())}
+      >
+        {b.label}
+      </button>
+    {/each}
+  </div>
+
+  <!-- Right-side message panel -->
+  <aside class="right-panel" aria-live="polite">
+    <div class="right-panel-title">Message</div>
+    <pre class="right-panel-body">{rightMessage}</pre>
+  </aside>
 
 
   <!-- Controls above the text box -->
@@ -209,6 +228,97 @@
     background: #333;
     color: #eee;
     border: 1px solid #555;
+  }
+
+  /* ===== Added styles for rounded buttons + right message panel IAW feedback received ===== */
+
+  .quick-actions {
+    width: clamp(300px, 80vw, 1200px);
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .rounded-action {
+    width: 220px;
+    height: 54px;
+    border-radius: 14px;          /* rounded rectangle */
+    border: 1px solid #888;
+    cursor: pointer;
+
+    display: flex;                /* centered text */
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    background: #fff;
+    color: #111;
+    transition: transform 0.05s, background 0.2s, color 0.2s, border-color 0.2s;
+  }
+
+  .rounded-action:hover {
+    background: #f2f2f2;
+  }
+
+  .rounded-action:active {
+    transform: translateY(1px);
+  }
+
+  main.dark .rounded-action {
+    background: #333;
+    color: #eee;
+    border-color: #aaa;
+  }
+
+  main.dark .rounded-action:hover {
+    background: #3a3a3a;
+  }
+
+  .right-panel {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    width: min(420px, 34vw);
+    max-height: calc(100vh - 48px);
+    overflow: auto;
+
+    border: 1px solid #bbb;
+    border-radius: 14px;
+    padding: 14px;
+    background: #fff;
+    color: #111;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  main.dark .right-panel {
+    background: #2b2b2b;
+    color: #eee;
+    border-color: #666;
+  }
+
+  .right-panel-title {
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+
+  .right-panel-body {
+    margin: 0;
+    white-space: pre-wrap;
+    font-family: inherit;
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
+  /* Allows the screen to scale */
+  @media (max-width: 900px) {
+    .right-panel {
+      position: static;
+      width: clamp(300px, 80vw, 1200px);
+      box-shadow: none;
+    }
   }
 </style>
 
