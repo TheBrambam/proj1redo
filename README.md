@@ -1,47 +1,23 @@
-# Svelte + Vite
+One thing that I feel that I could use to make parenting a little easier is to have an application that tracks a child’s extracurricular activities and progress, so that parents can see that their child is still engaged and improving their skills.
 
-This template should help get you started developing with Svelte in Vite.
+One parent I interviewed enjoys playing with robots, math, and reading. I thought it would be good to ask questions for what they enjoy doing together and a journaling project came to mind. Having the child do the typing in the application would also be beneficial to developing skills with a keyboard.
 
-## Recommended IDE Setup
+When engaging the interviewees, I chose to focus on what they didn't like about journaling entries because it would be something that I could code around instead of making things that would lead to a problem they didn't like. Having clear no-go features from the beginning helped me figure out a way to stay away from any bad features.
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+The user interface is presented with several options to start. Working fomr top to bottom, the user is greeted with the activity that they wanted to journal for the entry. This can assist them with keeping consistent or seeing if they may have beat a goal or not and make a comment on it. Important signifiers for the page were blatant to not only assist the user with their jornaling, but also have more reading and comprehension practice. Constraints that were present included only having a few choices so that the user would be reminded to complete the required entries.
 
-## Need an official Svelte framework?
+Design prototypes:
 
-Check out [SvelteKit](https://github.com/sveltejs/kit#readme), which is also powered by Vite. Deploy anywhere with its serverless-first approach and adapt to various platforms, with out of the box support for TypeScript, SCSS, and Less, and easily-added support for mdsvex, GraphQL, PostCSS, Tailwind CSS, and more.
+<img width="343" height="456" alt="image" src="https://github.com/user-attachments/assets/3621443a-168d-43db-bde5-bcab27d3ff0a" />
+<img width="340" height="454" alt="image" src="https://github.com/user-attachments/assets/4e73feb8-95f5-48c0-ba28-6b31c5c1ef05" />
+<img width="345" height="461" alt="image" src="https://github.com/user-attachments/assets/9ad555c3-2068-45eb-88f3-50617ab39def" />
 
-## Technical considerations
+Charts were discarded due to no back-end being used for saving entries. This required a complete re-do of the application.
 
-**Why use this over SvelteKit?**
+Default Mode:
+<img width="975" height="536" alt="image" src="https://github.com/user-attachments/assets/39b8ef54-3447-4dd4-8b45-b4acfed4e312" />
 
-- It brings its own routing solution which might not be preferable for some users.
-- It is first and foremost a framework that just happens to use Vite under the hood, not a Vite app.
+Light Mode:
+<img width="975" height="568" alt="image" src="https://github.com/user-attachments/assets/ccd15159-c1bd-4db1-962a-735f9644fc4f" />
 
-This template contains as little as possible to get started with Vite + Svelte, while taking into account the developer experience with regards to HMR and intellisense. It demonstrates capabilities on par with the other `create-vite` templates and is a good starting point for beginners dipping their toes into a Vite + Svelte project.
-
-Should you later need the extended capabilities and extensibility provided by SvelteKit, the template has been structured similarly to SvelteKit so that it is easy to migrate.
-
-**Why `global.d.ts` instead of `compilerOptions.types` inside `jsconfig.json` or `tsconfig.json`?**
-
-Setting `compilerOptions.types` shuts out all other types not explicitly listed in the configuration. Using triple-slash references keeps the default TypeScript setting of accepting type information from the entire workspace, while also adding `svelte` and `vite/client` type information.
-
-**Why include `.vscode/extensions.json`?**
-
-Other templates indirectly recommend extensions via the README, but this file allows VS Code to prompt the user to install the recommended extension upon opening the project.
-
-**Why enable `checkJs` in the JS template?**
-
-It is likely that most cases of changing variable types in runtime are likely to be accidental, rather than deliberate. This provides advanced typechecking out of the box. Should you like to take advantage of the dynamically-typed nature of JavaScript, it is trivial to change the configuration.
-
-**Why is HMR not preserving my local component state?**
-
-HMR state preservation comes with a number of gotchas! It has been disabled by default in both `svelte-hmr` and `@sveltejs/vite-plugin-svelte` due to its often surprising behavior. You can read the details [here](https://github.com/sveltejs/svelte-hmr/tree/master/packages/svelte-hmr#preservation-of-local-state).
-
-If you have state that's important to retain within a component, consider creating an external store which would not be replaced by HMR.
-
-```js
-// store.js
-// An extremely simple external store
-import { writable } from 'svelte/store'
-export default writable(0)
-```
+Default mode was to keep with 508 compliance. The simplistic view was done so that a child could interact with fewer features and be less distracted. A failsafe was built in to make sure a date was selected prior to being able to move on with the entries being saved. Future updates to this application will be the database integration with charts so that progress can be tracked.
