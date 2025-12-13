@@ -21,3 +21,9 @@ Light Mode:
 <img width="975" height="568" alt="image" src="https://github.com/user-attachments/assets/ccd15159-c1bd-4db1-962a-735f9644fc4f" />
 
 Default mode was to keep with 508 compliance. The simplistic view was done so that a child could interact with fewer features and be less distracted. A failsafe was built in to make sure a date was selected prior to being able to move on with the entries being saved. Future updates to this application will be the database integration with charts so that progress can be tracked.
+
+Updated interface:
+
+<img width="1576" height="773" alt="image" src="https://github.com/user-attachments/assets/1a5913a1-6298-42b9-a803-21e85c1917a2" />
+
+This enabled the user to see old messages by selecting a date and the entry would appear in the upper right.
