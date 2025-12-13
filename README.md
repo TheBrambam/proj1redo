@@ -27,3 +27,6 @@ Updated interface:
 <img width="1576" height="773" alt="image" src="https://github.com/user-attachments/assets/1a5913a1-6298-42b9-a803-21e85c1917a2" />
 
 This enabled the user to see old messages by selecting a date and the entry would appear in the upper right.
+
+USER FEEDBACK (previously missing)
+The users that looked at the updated application were happy with the new addition to see the previous entries. Having it all on the screen at once and the date highlighted was a direct way to interpret what was done with the entry. Another thing that they liked was the ability for the buttons to automatically move when the screen got smaller. A younger user was able to select and put an entry in to test their journaling skills and required no instruction how to use the application. They were overall joyed with how it worked.
